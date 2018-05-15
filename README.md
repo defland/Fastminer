@@ -1,6 +1,6 @@
 # Fastminer
 
-挖矿批量部署和自动化管理方案，傻瓜化部署。
+Virtual currency mining automation deployment management software program.
 
 # Virtual currency support
 
