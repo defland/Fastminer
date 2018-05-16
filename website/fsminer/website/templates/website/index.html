@@ -1,0 +1,28 @@
+{% if coin %}
+    <ul>
+    {% for coin in coins %}
+        <li>{{ coin.coin_type }}</a></li>
+        <li>{{ coin.calulation_ability }}</a></li>
+        <li>{{ coin.earning_possibility }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No coins are available.</p>
+{% endif %}
+
+
+{% if gpus %}
+    <ul>
+    {% for gpu in gpus %}
+        <li>{{ gpu.name }}</a></li>
+        <li>{{ gpu.gtype }}</a></li>
+        <li>{{ gpu.calculation }}</a></li>
+        <li>{{ gpu.cost }}</a></li>
+        <li>{{ gpu.day_earning }}</a></li>
+        <li>{{ gpu.week_earning }}</a></li>
+        <li>{{ gpu.month_earning }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No gpus are available.</p>
+{% endif %}

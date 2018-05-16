@@ -1,0 +1,6 @@
+adium-theme-ubuntu==0.3.4
+psycopg2==2.6.1
+pygobject==3.20.0
+pyxdg==0.25
+unity-lens-photos==1.0
+virtualenv==15.1.0
