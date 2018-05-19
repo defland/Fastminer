@@ -17,7 +17,10 @@ from django.contrib import admin
 from django.urls import path
 
 from website.views import website
+from serialcode.views import activate_code
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('website/', website, name='website')
+    path('website/', website, name='website'),
+    path('activate/', activate_code, name='activate'),
 ]
