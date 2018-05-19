@@ -1,4 +1,4 @@
-#!/home/ubuntu/fsminer/3env/bin/python
+#!/home/ubuntu/Fastminer/website/3env/bin/python
 
 import sys
 import getopt

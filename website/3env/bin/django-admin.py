@@ -1,4 +1,4 @@
-#!/home/ubuntu/fsminer/3env/bin/python3
+#!/home/ubuntu/Fastminer/website/3env/bin/python3
 from django.core import management
 
 if __name__ == "__main__":
