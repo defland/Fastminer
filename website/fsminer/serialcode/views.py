@@ -15,20 +15,19 @@ def activate_code(request):
 	received_json_data=json.loads(request.body.decode('utf-8'))
 	mac = received_json_data.get('mac')
 	serialcode = received_json_data.get('serialcode')
-	print(mac, serialcode)
 
 	# validate the request data
 	if not (mac and serialcode):
-		return JsonResponse({"ACTIVATE FAILD":"Invalid data"})
+		return JsonResponse({"ACTIVATE FAILD":"Invalid data"}, status=400)
 
 	# If the code exist & not activated
 	serialcode = SerialCode.objects.get(serialcode=serialcode)
 	if serialcode:
 		auth_key = serialcode.auth_key
 		if auth_key:
-			return JsonResponse({"ACTIVATE FAILD":"already activated"})
+			return JsonResponse({"ACTIVATE FAILD":"already activated"}, status=400)
 	else:
-		return JsonResponse({"ACTIVATE FAILD":"Invalid code"})
+		return JsonResponse({"ACTIVATE FAILD":"Invalid code"}, status=400)
 
 	# activate & save key
 	salt = serialcode.serialcode[2:9]
@@ -37,5 +36,5 @@ def activate_code(request):
 	serialcode.auth_key = auth_key
 	serialcode.save()
 
-	return JsonResponse({"SUCCESS":serialcode.auth_key})
+	return JsonResponse({"SUCCESS":serialcode.auth_key}, status=200)
 
