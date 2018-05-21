@@ -1,8 +1,8 @@
 # coding: utf-8
 import hashlib, json, os, requests, uuid, traceback
 FILE = '.jixueconfig.py'
-# DOMAIN = 'http://teamof.codes'
-DOMAIN = 'http://0.0.0.0:8000'
+DOMAIN = 'http://teamof.codes'
+# DOMAIN = 'http://0.0.0.0:8000'
 ACTIVE_API = '/activate/'
 
 
