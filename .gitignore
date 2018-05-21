@@ -12,10 +12,10 @@ __pycache__/
 */migrations
 
 # virtualenv
-
 env
 ven
-virtualenv
+env2.7
+env3.6
 
 
 # Distribution / packaging
