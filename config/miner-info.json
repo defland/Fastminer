@@ -1,0 +1,16 @@
+{
+  "XDAG-GPU-Miner": {
+    "MINER_TOOLS_TYPE": "XDAG",
+    "MINER_TOOLS_NAME": "XDAG-GPU-MINMERS",
+    "MINER_PRE_BASH_COMMAND": "",
+    "MINER_TOOLS_PATH": "miners/xdag-gpu/",
+    "MINER_START_COMMAND": "./miner -user ${ADDR}.gtx1080tix5 -sleep 0 -I 7  $@ 2>&1 >> /var/tmp/miner.log.$i &./"
+  },
+  "BTM-Miners": {
+    "MINER_TOOLS_TYPE": "BTM",
+    "MINER_TOOLS_NAME": "BTM-Miners",
+    "MINER_PRE_BASH_COMMAND": "LD_LIBRARY_PATH=$LD_LIBRARY_PATH:cuda9",
+    "MINER_TOOLS_PATH": "miners/btm-miners/",
+    "MINER_START_COMMAND": "./miner -user ${ADDR}.gtx1080tix5 -sleep 0 -I 7  $@ 2>&1 >> /var/tmp/miner.log.$i &./"
+  }
+}
