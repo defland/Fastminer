@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from website.views import website
+from website.views import website, get_miner_pool_api
 from serialcode.views import activate_code
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('website/', website, name='website'),
     path('activate/', activate_code, name='activate'),
+    path('get_miner_pool/', get_miner_pool_api, name='get_miner_pool'),
 ]
