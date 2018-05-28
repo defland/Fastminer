@@ -1,9 +1,21 @@
+from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 
 from .models import Coin, GPU, MiningPool
-import hashlib, json, traceback
+import hashlib, json, traceback, requests
+
+
+def __get_coin_price(coin_id):
+	response = requests.get(settings.COIN_API % coin_id )
+	if response.status_code == 200:
+		response = json.loads(response.content.decode('utf-8'))
+		price = response['data']['quotes']['CNY']['price']
+	else:
+		price = 0
+	return price
+
 
 def website(request):
     coins = Coin.objects.order_by('-calulation_ability')
@@ -22,8 +34,8 @@ def get_miner_pool_api(request):
 		resp = {}
 		coins = Coin.objects.all()
 		for coin in coins:
-			print(coin.coin_en_name)
 			resp[coin.coin_en_name] = {
+				'price': __get_coin_price(coin.coin_3rd_id),
 				'coin_type': coin.coin_type,
 				'calulation_ability': coin.calulation_ability,
 				'earning_possibility': coin.earning_possibility,

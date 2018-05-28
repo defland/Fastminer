@@ -25,7 +25,7 @@ SECRET_KEY = '5^#^cf12sx5ypakqip=v0sf(y(tpom#)zin&%6#flk*4%r*fgy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -123,3 +123,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,"static/") # python manage.py collectstatic
 
+
+
+# 3rd party API
+COIN_API= "https://api.coinmarketcap.com/v2/ticker/%s/?convert=CNY"

@@ -8,7 +8,7 @@ class Coin(models.Model):
 	coin_en_name = models.CharField(max_length=1024)
 	coin_nickname =  models.CharField(max_length=256)
 	coin_link = models.CharField(max_length=2048)
-
+	coin_3rd_id = models.IntegerField(default=1, null=False)
 
 	def __str__(self):
 		return 'coin_type: %s' % self.coin_type
