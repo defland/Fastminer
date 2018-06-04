@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'serialcode.apps.SerialcodeConfig',
     'website.apps.WebsiteConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
