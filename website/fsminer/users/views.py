@@ -14,10 +14,9 @@ def userinfo(request):
 		'gpu': received_json_data.get('gpu'),
 		'time_login':  datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 	}
-	print(update_info)
+
 	obj, created = UserInfo.objects.update_or_create(
 		mac=mac,
 		defaults=update_info,
 	)
-	response = json.dumps(update_info)
-	return JsonResponse(response, status=201, safe=False)
+	return JsonResponse(update_info, status=201, safe=False)

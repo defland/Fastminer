@@ -1,9 +1,10 @@
 from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from django.shortcuts import get_object_or_404
 from django.template import loader
 
-from .models import Coin, GPU, MiningPool
+from .models import Coin, GPU, MiningPool, Version
 import hashlib, json, traceback, requests
 
 
@@ -65,3 +66,19 @@ def get_miner_pool_api(request):
 	except Exception as e:
 		print('GG----------:', traceback.format_exc())
 		return JsonResponse({"FAILD":"server error"}, status=400)
+
+
+def get_latest_version(request):
+	version =  request.GET.get('version')
+	app =  request.GET.get('app')
+
+	instance = get_object_or_404(Version)
+	latest_version = instance.version
+	response = {
+			'version':latest_version,
+			'is_latest':False
+		}
+	if latest_version == version:
+		response['is_latest'] = True
+		
+	return JsonResponse(response, status=200, safe=False)

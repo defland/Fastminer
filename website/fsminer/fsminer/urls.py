@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from website.views import website, get_miner_pool_api
+from website.views import website, get_miner_pool_api, get_latest_version
 from serialcode.views import activate_code
 from users.views import userinfo
 
@@ -26,4 +26,5 @@ urlpatterns = [
     path('activate/', activate_code, name='activate'),
     path('get_miner_pool/', get_miner_pool_api, name='get_miner_pool'),
     path('userinfo/', userinfo, name='userinfo'),
+    path('get_latest_version/', get_latest_version, name='userinfo'),
 ]

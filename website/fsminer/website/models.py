@@ -44,3 +44,16 @@ class MiningPool(models.Model):
 
 	def __str__(self):
 		return self.pool
+
+
+class Version(models.Model):
+	version = models.CharField(max_length=126)
+	app = models.CharField(
+		unique=True, 
+		max_length=126
+	)
+	url = models.CharField(max_length=2048)
+	time_updated = models.DateTimeField(
+		auto_now=True,
+		null=True,
+	)
